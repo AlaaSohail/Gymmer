@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "416256358516",
+    "project_id": "gymmer-65a39",
+    "storage_bucket": "gymmer-65a39.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416256358516:android:e3f1ccbe9c837008d63921",
+        "android_client_info": {
+          "package_name": "com.alaasohail.gymmer"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5rjLlNy0v5rokq66WWqZgFRMXbVRnuq4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
