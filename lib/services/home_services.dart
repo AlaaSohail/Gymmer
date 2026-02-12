@@ -1,9 +1,8 @@
 import '../models/Exercise.dart';
-import '../models/api_path.dart';
+import '../models/ApiPath.dart';
 import 'firestore_services.dart';
 
 abstract class HomeServices {
-  // Future<List<Exercise>> getSaleProducts();
 
   Future<List<Exercise>> getExercises();
 }
@@ -17,6 +16,4 @@ class HomeServicesImpl implements HomeServices {
         path: ApiPath.exercises(),
         builder: (data, documentId) => Exercise.fromMap(data, documentId),
       );
-
-
 }

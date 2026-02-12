@@ -40,17 +40,19 @@ class _AllTrainerScreenState extends State<AllTrainerScreen> {
             debugPrint("TrainerError: ${state.message}");
           } else if (state is TrainerSuccess) {
             final trainers = state.trainers;
-            return SingleChildScrollView(
-              child: Column(
-                children: [
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: trainers.length,
-                    itemBuilder: (_, index) =>
-                        TrainerCard(trainer: trainers[index]),
+            return GridView.builder(
+              padding: const EdgeInsets.all(16),
+              itemCount: trainers.length,
+              gridDelegate:
+                  const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3, // عدد الأعمدة
+                    mainAxisSpacing: 20, // المسافة العمودية
+                    crossAxisSpacing: 10, // المسافة الأفقية
+                    childAspectRatio: 0.75, // تحكم بشكل الكارد
                   ),
-                ],
-              ),
+              itemBuilder: (context, index) {
+                return TrainerCard(trainer: trainers[index]);
+              },
             );
           }
           return SizedBox.shrink();

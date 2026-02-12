@@ -35,7 +35,7 @@ class Trainer {
       name: (map['name'] as String?) ?? '',
       email: (map['email'] as String?) ?? '',
       phone: (map['phone'] as String?) ?? '',
-      image: (map['image'] as String?) ?? 'me.png',
+      image: (map['image'] as String?) ?? 'profile.png',
       specialization: (map['specialization'] as String?) ?? '',
       gender: (map['gender'] as String?) ?? '',
     );

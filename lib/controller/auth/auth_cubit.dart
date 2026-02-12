@@ -1,7 +1,9 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../models/user_data.dart';
+import '../../models/UserData.dart';
 import '../../services/auth_services.dart';
 import '../../services/firestore_services.dart';
 import '../../services/user_services.dart';
@@ -52,7 +54,7 @@ class AuthCubit extends Cubit<AuthState> {
             email: email,
             name: name,
             phone: '0598805969',
-            image: 'me.png',
+            image: 'profile.png',
             gender: 'Male',
           ),
         );

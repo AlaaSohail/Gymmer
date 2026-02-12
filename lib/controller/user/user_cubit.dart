@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:meta/meta.dart';
 
-import '../../models/user_data.dart';
+import '../../models/UserData.dart';
 import '../../services/auth_services.dart';
 import '../../services/user_services.dart';
 

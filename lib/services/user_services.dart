@@ -1,6 +1,6 @@
 
-import '../models/api_path.dart';
-import '../models/user_data.dart';
+import '../models/ApiPath.dart';
+import '../models/UserData.dart';
 import 'auth.dart';
 import 'firestore_services.dart';
 

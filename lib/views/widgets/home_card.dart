@@ -32,7 +32,7 @@ class _HomeCardState extends State<HomeCard> {
           child: Stack(
             children: [
               Image.asset(
-                "assets/images/${widget.exercise.image}.png",
+                "assets/images/${widget.exercise.image}",
                 height: 180,
                 width: widget.cardWidth,
                 fit: BoxFit.cover,

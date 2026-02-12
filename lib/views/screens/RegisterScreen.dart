@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:icons_plus/icons_plus.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:msh_checkbox/msh_checkbox.dart';
@@ -39,7 +40,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   void initState() {
     super.initState();
-
   }
 
   @override
@@ -53,6 +53,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
+                  SvgPicture.asset('assets/images/logo.svg', height: 60),
+
                   Padding(
                     padding: const EdgeInsets.only(top: 90),
                     child: Align(
@@ -90,9 +92,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             textAlign: TextAlign.left,
                             clipBehavior: Clip.antiAlias,
                             autovalidateMode:
-                            AutovalidateMode.onUserInteraction,
+                                AutovalidateMode.onUserInteraction,
                             validator: (value) =>
-                            value!.isEmpty ? "Enter your name" : null,
+                                value!.isEmpty ? "Enter your name" : null,
                             decoration: InputDecoration(
                               isDense: true,
                               contentPadding: EdgeInsets.symmetric(
@@ -179,7 +181,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                             focusNode: _emailFocusNode,
                             autovalidateMode:
-                            AutovalidateMode.onUserInteraction,
+                                AutovalidateMode.onUserInteraction,
                             onEditingComplete: () => FocusScope.of(
                               context,
                             ).requestFocus(_passwordFocusNode),
@@ -283,7 +285,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             textAlign: TextAlign.left,
                             focusNode: _passwordFocusNode,
                             autovalidateMode:
-                            AutovalidateMode.onUserInteraction,
+                                AutovalidateMode.onUserInteraction,
                             textInputAction: TextInputAction.next,
                             keyboardType: TextInputType.visiblePassword,
 
@@ -384,10 +386,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 value: isChecked,
 
                                 colorConfig:
-                                MSHColorConfig.fromCheckedUncheckedDisabled(
-                                  uncheckedColor: Colors.grey,
-                                  checkedColor: myOrange,
-                                ),
+                                    MSHColorConfig.fromCheckedUncheckedDisabled(
+                                      uncheckedColor: Colors.grey,
+                                      checkedColor: myOrange,
+                                    ),
                                 style: MSHCheckboxStyle.stroke,
                                 onChanged: (selected) {
                                   setState(() {
@@ -417,23 +419,23 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                   BlocConsumer<AuthCubit, AuthState>(
                     listenWhen: (previous, current) =>
-                    current is AuthSuccess || current is AuthError,
+                        current is AuthSuccess || current is AuthError,
                     listener: (context, state) {
                       if (state is AuthSuccess) {
                         Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(builder: (_) => BottomNavBar()),
-                              (route) => false,
+                          (route) => false,
                         );
                       }
 
                       if (state is AuthError) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text(state.message)),
-                        );
+                        ScaffoldMessenger.of(
+                          context,
+                        ).showSnackBar(SnackBar(content: Text(state.message)));
                       }
                     },
                     buildWhen: (previous, current) =>
-                    current is AuthLoading || current is AuthInitial,
+                        current is AuthLoading || current is AuthInitial,
                     builder: (context, state) {
                       if (state is AuthLoading) {
                         return LoadingAnimationWidget.discreteCircle(

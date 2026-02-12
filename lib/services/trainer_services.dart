@@ -1,4 +1,4 @@
-import 'package:gymmer/models/api_path.dart';
+import 'package:gymmer/models/ApiPath.dart';
 
 import '../models/Trainer.dart';
 import 'firestore_services.dart';

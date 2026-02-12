@@ -12,6 +12,7 @@ import '../widgets/MainButton.dart';
 import '../widgets/profile_cards.dart';
 import 'EditProfileScreen.dart';
 import 'LoginScreen.dart';
+import 'PrivacyScreen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -53,7 +54,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               );
-
             },
             child: Text(
               "Edit Profile",
@@ -70,7 +70,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: BlocBuilder<UserCubit, UserState>(
           bloc: userCubit,
           buildWhen: (previous, current) =>
-          current is UserSuccess ||
+              current is UserSuccess ||
               current is UserError ||
               current is UserLoading,
 
@@ -93,7 +93,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 padding: const EdgeInsets.all(8.0),
                 child: RefreshIndicator.adaptive(
                   onRefresh: () async {
-
                     context.read<UserCubit>().loadCurrentUser();
                   },
                   child: Column(
@@ -138,27 +137,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       ),
                       const SizedBox(height: 20),
                       ProfileCards(
-                        ProfileScreen(),
+                        PrivacyScreen(
+                          'About Gymmer',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, erat eu volutpat semper, magna nisl rutrum mi, eu convallis mauris mi vel tortor. Nulla vehicula orci a semper tincidunt. Nam consectetur interdum orci, ut venenatis diam lobortis ut. Aliquam mollis nunc enim, in fermentum tortor pulvinar vel. Cras at nisl risus. Mauris vehicula ultricies justo tempus lacinia. Donec laoreet magna ut sapien convallis fermentum. Curabitur lacinia augue a urna aliquet accumsan at a purus. Phasellus varius, arcu quis vestibulum dignissim, elit nisl ullamcorper lectus, at placerat risus enim id lectus.   Proin vel malesuada tellus. Maecenas molestie, ipsum non dapibus viverra, mauris est convallis arcu, et eleifend quam eros nec nisl. Quisque pulvinar enim metus, nec dapibus tellus tempor non. Nulla sed placerat est, vitae volutpat turpis.  ',
+                          'What is Lorem Ipsum?',
+                        ),
                         title: "About Gymmer",
                         icon: Bootstrap.info_circle_fill,
                       ),
                       ProfileCards(
-                        ProfileScreen(),
+                        PrivacyScreen(
+                          'Privacy Policy',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, erat eu volutpat semper, magna nisl rutrum mi, eu convallis mauris mi vel tortor. Nulla vehicula orci a semper tincidunt. Nam consectetur interdum orci, ut venenatis diam lobortis ut. Aliquam mollis nunc enim, in fermentum tortor pulvinar vel. Cras at nisl risus. Mauris vehicula ultricies justo tempus lacinia. Donec laoreet magna ut sapien convallis fermentum. Curabitur lacinia augue a urna aliquet accumsan at a purus. Phasellus varius, arcu quis vestibulum dignissim, elit nisl ullamcorper lectus, at placerat risus enim id lectus.   Proin vel malesuada tellus. Maecenas molestie, ipsum non dapibus viverra, mauris est convallis arcu, et eleifend quam eros nec nisl. Quisque pulvinar enim metus, nec dapibus tellus tempor non. Nulla sed placerat est, vitae volutpat turpis.  ',
+                          'What is Lorem Ipsum?',
+                        ),
                         title: "Privacy",
                         icon: CupertinoIcons.lock_shield_fill,
                       ),
                       ProfileCards(
-                        ProfileScreen(),
+                        PrivacyScreen(
+                          'Terms & Conditions',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, erat eu volutpat semper, magna nisl rutrum mi, eu convallis mauris mi vel tortor. Nulla vehicula orci a semper tincidunt. Nam consectetur interdum orci, ut venenatis diam lobortis ut. Aliquam mollis nunc enim, in fermentum tortor pulvinar vel. Cras at nisl risus. Mauris vehicula ultricies justo tempus lacinia. Donec laoreet magna ut sapien convallis fermentum. Curabitur lacinia augue a urna aliquet accumsan at a purus. Phasellus varius, arcu quis vestibulum dignissim, elit nisl ullamcorper lectus, at placerat risus enim id lectus.   Proin vel malesuada tellus. Maecenas molestie, ipsum non dapibus viverra, mauris est convallis arcu, et eleifend quam eros nec nisl. Quisque pulvinar enim metus, nec dapibus tellus tempor non. Nulla sed placerat est, vitae volutpat turpis.  ',
+                          'What is Lorem Ipsum?',
+                        ),
                         title: "Terms & Conditions",
                         icon: Icons.privacy_tip_rounded,
                       ),
                       ProfileCards(
-                        ProfileScreen(),
+                        PrivacyScreen(
+                          'FeedBack',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, erat eu volutpat semper, magna nisl rutrum mi, eu convallis mauris mi vel tortor. Nulla vehicula orci a semper tincidunt. Nam consectetur interdum orci, ut venenatis diam lobortis ut. Aliquam mollis nunc enim, in fermentum tortor pulvinar vel. Cras at nisl risus. Mauris vehicula ultricies justo tempus lacinia. Donec laoreet magna ut sapien convallis fermentum. Curabitur lacinia augue a urna aliquet accumsan at a purus. Phasellus varius, arcu quis vestibulum dignissim, elit nisl ullamcorper lectus, at placerat risus enim id lectus.   Proin vel malesuada tellus. Maecenas molestie, ipsum non dapibus viverra, mauris est convallis arcu, et eleifend quam eros nec nisl. Quisque pulvinar enim metus, nec dapibus tellus tempor non. Nulla sed placerat est, vitae volutpat turpis.  ',
+                          'What is Lorem Ipsum?',
+                        ),
                         title: "FeedBack",
                         icon: Icons.feedback_rounded,
                       ),
                       ProfileCards(
-                        ProfileScreen(),
+                        PrivacyScreen(
+                          'Rate Us',
+                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi elementum, erat eu volutpat semper, magna nisl rutrum mi, eu convallis mauris mi vel tortor. Nulla vehicula orci a semper tincidunt. Nam consectetur interdum orci, ut venenatis diam lobortis ut. Aliquam mollis nunc enim, in fermentum tortor pulvinar vel. Cras at nisl risus. Mauris vehicula ultricies justo tempus lacinia. Donec laoreet magna ut sapien convallis fermentum. Curabitur lacinia augue a urna aliquet accumsan at a purus. Phasellus varius, arcu quis vestibulum dignissim, elit nisl ullamcorper lectus, at placerat risus enim id lectus.   Proin vel malesuada tellus. Maecenas molestie, ipsum non dapibus viverra, mauris est convallis arcu, et eleifend quam eros nec nisl. Quisque pulvinar enim metus, nec dapibus tellus tempor non. Nulla sed placerat est, vitae volutpat turpis.  ',
+                          'What is Lorem Ipsum?',
+                        ),
                         title: "Rate Us",
                         icon: Bootstrap.stars,
                       ),
@@ -167,7 +186,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       BlocConsumer<AuthCubit, AuthState>(
                         bloc: authCubit,
                         listenWhen: (previous, current) =>
-                        current is AuthInitial || current is AuthError,
+                            current is AuthInitial || current is AuthError,
                         listener: (context, state) {
                           if (state is AuthError) {
                             print(state.message);
@@ -177,12 +196,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                               rootNavigator: true,
                             ).pushAndRemoveUntil(
                               MaterialPageRoute(builder: (_) => LoginScreen()),
-                                  (route) => false,
+                              (route) => false,
                             );
                           }
                         },
                         buildWhen: (previous, current) =>
-                        current is AuthLoading ||
+                            current is AuthLoading ||
                             current is AuthError ||
                             current is AuthInitial,
 

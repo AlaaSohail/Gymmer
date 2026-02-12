@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gymmer/models/constsOfDart.dart';
 
-// ignore: must_be_immutable
 class ProfileCards extends StatefulWidget {
   final String title;
   IconData icon;
@@ -23,8 +22,11 @@ class _ProfileCardsState extends State<ProfileCards> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){
-
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => widget.forwardWidget),
+        );
       },
       child: Card(
         color: Colors.transparent,
@@ -49,20 +51,10 @@ class _ProfileCardsState extends State<ProfileCards> {
                   ),
                 ],
               ),
-              InkWell(
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => widget.forwardWidget,
-                    ),
-                  );
-                },
-                child: Icon(
-                  Icons.arrow_forward_ios_rounded,
-                  size: 20,
-                  color: Colors.grey,
-                ),
+              Icon(
+                Icons.arrow_forward_ios_rounded,
+                size: 20,
+                color: Colors.grey,
               ),
             ],
           ),

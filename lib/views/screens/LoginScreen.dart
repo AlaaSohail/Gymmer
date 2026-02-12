@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
+
 // ignore: unused_import
 import 'package:gymmer/views/screens/HomeScreen.dart';
 import 'package:gymmer/views/screens/RegisterScreen.dart';
@@ -38,158 +40,9 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
-  // Future<void> _submit(AuthCubit authCubit) async {
-  //   try {
-  //     toastification.dismissAll();
-  //     await model.submit();
-  //   } on FirebaseAuthException catch (e) {
-  //     toastification.dismissAll();
-  //     String errorMessage;
-  //     switch (e.code) {
-  //       case "invalid-email":
-  //         errorMessage = "Invalid Email";
-  //         break;
-  //       case "user-not-found":
-  //         errorMessage = "User not found";
-  //         break;
-  //       case "wrong-password":
-  //         errorMessage = "Wrong password";
-  //         break;
-  //       case "user-disabled":
-  //         errorMessage = "This user has been disabled";
-  //         break;
-  //       case "too-many-requests":
-  //         errorMessage = "Too many requests";
-  //         break;
-  //       case "operation-not-allowed":
-  //         errorMessage = "Operation not allowed";
-  //         break;
-  //       case "email-already-in-use":
-  //         errorMessage = "Email already in use";
-  //         break;
-  //       case "network-request-failed":
-  //         errorMessage = "Network request failed";
-  //         break;
-  //       case "weak-password":
-  //         errorMessage = "Weak password";
-  //         break;
-  //       case "requires-recent-login":
-  //         errorMessage = "Requires recent login";
-  //         break;
-  //       case "invalid-credential":
-  //         errorMessage = "Invalid credential";
-  //         break;
-  //       default:
-  //         errorMessage = "Email Or Password is incorrect";
-  //     }
-  //     if (!mounted) return;
-  //     toastification.show(
-  //       closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
-  //       type: ToastificationType.error,
-  //       style: ToastificationStyle.flatColored,
-  //       borderSide: BorderSide(
-  //         width: 1,
-  //         color: Colors.red,
-  //         style: BorderStyle.solid,
-  //         strokeAlign: BorderSide.strokeAlignOutside,
-  //       ),
-  //
-  //       icon: Icon(OctIcons.alert, color: Colors.red, size: 24),
-  //       alignment: Alignment.bottomCenter,
-  //       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-  //       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-  //       borderRadius: BorderRadius.circular(24),
-  //       boxShadow: const [
-  //         BoxShadow(
-  //           color: Color(0x07000000),
-  //           blurRadius: 16,
-  //           offset: Offset(0, 16),
-  //           spreadRadius: 0,
-  //         ),
-  //       ],
-  //
-  //       description: RichText(
-  //         text: TextSpan(
-  //           text: errorMessage,
-  //           style: TextStyle(
-  //             fontFamily: Gordita,
-  //             color: Colors.grey,
-  //             fontSize: 14,
-  //             fontWeight: FontWeight.w400,
-  //           ),
-  //         ),
-  //       ),
-  //       context: context,
-  //       title: Text(
-  //         'Authentication Error.',
-  //         style: TextStyle(
-  //           fontFamily: Gordita,
-  //           color: Colors.black,
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //         ),
-  //       ),
-  //       autoCloseDuration: const Duration(seconds: 3),
-  //       direction: TextDirection.ltr,
-  //     );
-  //   } catch (e) {
-  //     if (!mounted) return;
-  //     toastification.show(
-  //       closeButton: ToastCloseButton(showType: CloseButtonShowType.none),
-  //       type: ToastificationType.error,
-  //       style: ToastificationStyle.flatColored,
-  //       borderSide: BorderSide(
-  //         width: 1,
-  //         color: Colors.red,
-  //         style: BorderStyle.solid,
-  //         strokeAlign: BorderSide.strokeAlignOutside,
-  //       ),
-  //
-  //       icon: Icon(OctIcons.alert, color: Colors.red, size: 24),
-  //       alignment: Alignment.bottomCenter,
-  //       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-  //       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-  //       borderRadius: BorderRadius.circular(24),
-  //       boxShadow: const [
-  //         BoxShadow(
-  //           color: Color(0x07000000),
-  //           blurRadius: 16,
-  //           offset: Offset(0, 16),
-  //           spreadRadius: 0,
-  //         ),
-  //       ],
-  //
-  //       description: RichText(
-  //         text: TextSpan(
-  //           text: e.toString(),
-  //           style: TextStyle(
-  //             fontFamily: Gordita,
-  //             color: Colors.grey,
-  //             fontSize: 14,
-  //             fontWeight: FontWeight.w400,
-  //           ),
-  //         ),
-  //       ),
-  //       context: context,
-  //       title: Text(
-  //         'Authentication Error.',
-  //         style: TextStyle(
-  //           fontFamily: Gordita,
-  //           color: Colors.black,
-  //           fontSize: 16,
-  //           fontWeight: FontWeight.w500,
-  //         ),
-  //       ),
-  //       autoCloseDuration: const Duration(seconds: 3),
-  //       direction: TextDirection.ltr,
-  //     );
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     final authCubit = BlocProvider.of<AuthCubit>(context);
-
 
     return Scaffold(
       body: SafeArea(
@@ -199,6 +52,8 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.all(20.0),
               child: Column(
                 children: [
+                  SvgPicture.asset('assets/images/logo.svg', height: 60),
+
                   Padding(
                     padding: const EdgeInsets.only(top: 80),
                     child: Align(
@@ -302,7 +157,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 1,
-                                  color: myOrange
+                                  color: myOrange,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -313,7 +168,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 1,
-                                  color: myOrange
+                                  color: myOrange,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -360,7 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     OctIcons.lock,
 
                                     size: 24,
-                                    color: myOrange
+                                    color: myOrange,
                                   ),
                                 ),
                               ),
@@ -381,7 +236,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               focusedErrorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 1,
-                                  color: myOrange
+                                  color: myOrange,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -389,7 +244,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               errorBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 1,
-                                  color: myOrange
+                                  color: myOrange,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -400,7 +255,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               focusedBorder: OutlineInputBorder(
                                 borderSide: BorderSide(
                                   width: 1,
-                                  color: myOrange
+                                  color: myOrange,
                                 ),
                                 borderRadius: BorderRadius.circular(10),
                               ),
@@ -430,7 +285,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           style: TextStyle(
                             fontFamily: Gordita,
                             fontSize: 12,
-                            color: myOrange
+                            color: myOrange,
                           ),
                         ),
                       ),
@@ -449,11 +304,11 @@ class _LoginScreenState extends State<LoginScreen> {
                             SnackBar(content: Text(state.message)),
                           );
                         } else if (state is AuthSuccess) {
-                          Navigator.of(context).popUntil((route) =>
-                          route.isFirst);
+                          Navigator.of(
+                            context,
+                          ).popUntil((route) => route.isFirst);
                         }
                       };
-
                     },
                     buildWhen: (previous, current) =>
                         current is AuthLoading ||

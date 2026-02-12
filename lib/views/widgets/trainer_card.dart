@@ -38,7 +38,7 @@ class TrainerCard extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Colors.white,
+              color: Colors.transparent,
             ),
 
             child: Column(

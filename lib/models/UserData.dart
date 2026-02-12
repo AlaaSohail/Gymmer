@@ -3,7 +3,7 @@ class UserData {
   final String email;
   final String name;
   final String phone;
-  final String? image; // 🔥
+  final String? image;
   final String gender;
 
   UserData({
@@ -14,6 +14,7 @@ class UserData {
     this.image,
     required this.gender,
   });
+
   UserData copyWith({
     String? name,
     String? phone,
@@ -47,7 +48,7 @@ class UserData {
       email: map['email'] ?? '',
       name: map['name'] ?? '',
       phone: map['phone'] ?? '',
-      image: map['image'], // nullable
+      image: map['image'],
       gender: map['gender'] ?? '',
     );
   }

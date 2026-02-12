@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gymmer/controller/user/user_cubit.dart'; // عدّل المسار حسب مشروعك
-import 'package:gymmer/models/user_data.dart';
+import 'package:gymmer/models/UserData.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 import '../../controller/auth/auth_cubit.dart';

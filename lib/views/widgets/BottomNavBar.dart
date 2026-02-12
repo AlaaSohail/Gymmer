@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gymmer/models/constsOfDart.dart';
 import 'package:gymmer/views/screens/BlogsScreen.dart';
